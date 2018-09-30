@@ -4,4 +4,33 @@ output: html_notebook
 ---
 
 
+####Operações Básicas
+
+```{r}
+n <- ((5 + 5) * 4) / 2
+n
+sqrt(n + 5) -> sq
+sq
+sq ^ 3
+```
+
+####Vetores (inicialização)
+```{r}
+v <- c(1,2,3,4,5)
+v
+v <- 1:5
+v
+seq(5) -> v
+v
+v * n
+v ** 2
+v <- seq.int(from = 1, to = 5, by = 1)
+v
+vis <- v[1] + v[3]
+vis
+
+v_names <- c("um", "dois", "três", "quatro", "cinco")
+names(v) <- v_names
+v
+```
 

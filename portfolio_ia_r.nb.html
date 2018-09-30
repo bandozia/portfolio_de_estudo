@@ -176,9 +176,99 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
+<div id="operacoes-basicas" class="section level4">
+<h4>Operações Básicas</h4>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubiA8LSAoKDUgKyA1KSAqIDQpIC8gMlxublxuYGBgIn0= -->
+<pre class="r"><code>n &lt;- ((5 + 5) * 4) / 2
+n</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIwXG4ifQ== -->
+<pre><code>[1] 20</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3FydChuICsgNSkgLT4gc3FcbnNxXG5gYGAifQ== -->
+<pre class="r"><code>sqrt(n + 5) -&gt; sq
+sq</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDVcbiJ9 -->
+<pre><code>[1] 5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3EgXiAzXG5gYGAifQ== -->
+<pre class="r"><code>sq ^ 3</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEyNVxuIn0= -->
+<pre><code>[1] 125</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="vetores-inicializacao" class="section level4">
+<h4>Vetores (inicialização)</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA8LSBjKDEsMiwzLDQsNSlcbnZcbmBgYCJ9 -->
+<pre class="r"><code>v &lt;- c(1,2,3,4,5)
+v</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDQgNVxuIn0= -->
+<pre><code>[1] 1 2 3 4 5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA8LSAxOjVcbnZcbmBgYCJ9 -->
+<pre class="r"><code>v &lt;- 1:5
+v</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDQgNVxuIn0= -->
+<pre><code>[1] 1 2 3 4 5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2VxKDUpIC0+IHZcbnZcbmBgYCJ9 -->
+<pre class="r"><code>seq(5) -&gt; v
+v</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDQgNVxuIn0= -->
+<pre><code>[1] 1 2 3 4 5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiAqIG5cbmBgYCJ9 -->
+<pre class="r"><code>v * n</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAyMCAgNDAgIDYwICA4MCAxMDBcbiJ9 -->
+<pre><code>[1]  20  40  60  80 100</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiAqKiAyXG5gYGAifQ== -->
+<pre class="r"><code>v ** 2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAxICA0ICA5IDE2IDI1XG4ifQ== -->
+<pre><code>[1]  1  4  9 16 25</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA8LSBzZXEuaW50KGZyb20gPSAxLCB0byA9IDUsIGJ5ID0gMSlcbnZcbmBgYCJ9 -->
+<pre class="r"><code>v &lt;- seq.int(from = 1, to = 5, by = 1)
+v</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDQgNVxuIn0= -->
+<pre><code>[1] 1 2 3 4 5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmlzIDwtIHZbMV0gKyB2WzNdXG52aXNcbmBgYCJ9 -->
+<pre class="r"><code>vis &lt;- v[1] + v[3]
+vis</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDRcbiJ9 -->
+<pre><code>[1] 4</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudl9uYW1lcyA8LSBjKFwidW1cIiwgXCJkb2lzXCIsIFwidHLDqnNcIiwgXCJxdWF0cm9cIiwgXCJjaW5jb1wiKVxubmFtZXModikgPC0gdl9uYW1lc1xudlxuYGBgIn0= -->
+<pre class="r"><code>v_names &lt;- c(&quot;um&quot;, &quot;dois&quot;, &quot;três&quot;, &quot;quatro&quot;, &quot;cinco&quot;)
+names(v) &lt;- v_names
+v</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIHVtICAgZG9pcyAgIHRyw6pzIHF1YXRybyAgY2luY28gXG4gICAgIDEgICAgICAyICAgICAgMyAgICAgIDQgICAgICA1IFxuIn0= -->
+<pre><code>    um   dois   três quatro  cinco 
+     1      2      3      4      5 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUG9ydGZvbGlvIGRhIGRpc2NpcGxpbmEgSUEgY29tIFIiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUG9ydGZvbGlvIGRhIGRpc2NpcGxpbmEgSUEgY29tIFIiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgojIyMjT3BlcmHDp8O1ZXMgQsOhc2ljYXMKCmBgYHtyfQpuIDwtICgoNSArIDUpICogNCkgLyAyCm4Kc3FydChuICsgNSkgLT4gc3EKc3EKc3EgXiAzCmBgYAoKIyMjI1ZldG9yZXMgKGluaWNpYWxpemHDp8OjbykKYGBge3J9CnYgPC0gYygxLDIsMyw0LDUpCnYKdiA8LSAxOjUKdgpzZXEoNSkgLT4gdgp2CnYgKiBuCnYgKiogMgp2IDwtIHNlcS5pbnQoZnJvbSA9IDEsIHRvID0gNSwgYnkgPSAxKQp2CnZpcyA8LSB2WzFdICsgdlszXQp2aXMKCnZfbmFtZXMgPC0gYygidW0iLCAiZG9pcyIsICJ0csOqcyIsICJxdWF0cm8iLCAiY2luY28iKQpuYW1lcyh2KSA8LSB2X25hbWVzCnYKYGBgCgo=</div>
 
 
 
