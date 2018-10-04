@@ -176,8 +176,9 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
-<div id="operacoes-basicas" class="section level4">
-<h4>Operações Básicas</h4>
+<p><br /></p>
+<div id="atrubuicao-de-variaveis" class="section level3">
+<h3>Atrubuição de variáveis</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubiA8LSAoKDUgKyA1KSAqIDQpIC8gMlxublxuYGBgIn0= -->
@@ -202,9 +203,10 @@ sq</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p><br /></p>
 </div>
-<div id="vetores-inicializacao" class="section level4">
-<h4>Vetores (inicialização)</h4>
+<div id="vetores" class="section level3">
+<h3>Vetores</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA8LSBjKDEsMiwzLDQsNSlcbnZcbmBgYCJ9 -->
@@ -228,18 +230,6 @@ v</code></pre>
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDQgNVxuIn0= -->
 <pre><code>[1] 1 2 3 4 5</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiAqIG5cbmBgYCJ9 -->
-<pre class="r"><code>v * n</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAyMCAgNDAgIDYwICA4MCAxMDBcbiJ9 -->
-<pre><code>[1]  20  40  60  80 100</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiAqKiAyXG5gYGAifQ== -->
-<pre class="r"><code>v ** 2</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAxICA0ICA5IDE2IDI1XG4ifQ== -->
-<pre><code>[1]  1  4  9 16 25</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA8LSBzZXEuaW50KGZyb20gPSAxLCB0byA9IDUsIGJ5ID0gMSlcbnZcbmBgYCJ9 -->
 <pre class="r"><code>v &lt;- seq.int(from = 1, to = 5, by = 1)
 v</code></pre>
@@ -247,13 +237,11 @@ v</code></pre>
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDQgNVxuIn0= -->
 <pre><code>[1] 1 2 3 4 5</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmlzIDwtIHZbMV0gKyB2WzNdXG52aXNcbmBgYCJ9 -->
-<pre class="r"><code>vis &lt;- v[1] + v[3]
-vis</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDRcbiJ9 -->
-<pre><code>[1] 4</code></pre>
-<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><br /> Vetores podem ter seus índices nomeados:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudl9uYW1lcyA8LSBjKFwidW1cIiwgXCJkb2lzXCIsIFwidHLDqnNcIiwgXCJxdWF0cm9cIiwgXCJjaW5jb1wiKVxubmFtZXModikgPC0gdl9uYW1lc1xudlxuYGBgIn0= -->
 <pre class="r"><code>v_names &lt;- c(&quot;um&quot;, &quot;dois&quot;, &quot;três&quot;, &quot;quatro&quot;, &quot;cinco&quot;)
 names(v) &lt;- v_names
@@ -265,10 +253,166 @@ v</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<div id="operacoes-com-vetores" class="section level4">
+<h4>Operações com vetores</h4>
+<p>Em uma operação entre um vetor e um escalar todos os índices sofrem a operação:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiAqIG5cbmBgYCJ9 -->
+<pre class="r"><code>v * n</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIHVtICAgZG9pcyAgIHRyw6pzIHF1YXRybyAgY2luY28gXG4gICAgMjAgICAgIDQwICAgICA2MCAgICAgODAgICAgMTAwIFxuIn0= -->
+<pre><code>    um   dois   três quatro  cinco 
+    20     40     60     80    100 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiAqKiAyXG5gYGAifQ== -->
+<pre class="r"><code>v ** 2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIHVtICAgZG9pcyAgIHRyw6pzIHF1YXRybyAgY2luY28gXG4gICAgIDEgICAgICA0ICAgICAgOSAgICAgMTYgICAgIDI1IFxuIn0= -->
+<pre><code>    um   dois   três quatro  cinco 
+     1      4      9     16     25 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>É possível operar índices específicos:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmlzIDwtIHZbMV0gKyB2WzNdXG52aXNcbmBgYCJ9 -->
+<pre class="r"><code>vis &lt;- v[1] + v[3]
+vis</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoidW0gXG4gNCBcbiJ9 -->
+<pre><code>um 
+ 4 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Qunado a operação é feita entre dois vetores do mesmo tamanho todos os indices são operados pelos indices do outro vetor:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudjIgPC0gYygyLDIsMiwyLDIpXG52ICt2MlxuYGBgIn0= -->
+<pre class="r"><code>v2 &lt;- c(2,2,2,2,2)
+v +v2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIHVtICAgZG9pcyAgIHRyw6pzIHF1YXRybyAgY2luY28gXG4gICAgIDMgICAgICA0ICAgICAgNSAgICAgIDYgICAgICA3IFxuIn0= -->
+<pre><code>    um   dois   três quatro  cinco 
+     3      4      5      6      7 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Se os tamanhos forem diferentes a operação é realizada com um aviso. Os valores do vetor menor são repetidos na operação:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudjIgPC0gYygzLDMsMylcbnYgKiB2MlxuYGBgIn0= -->
+<pre class="r"><code>v2 &lt;- c(3,3,3)
+v * v2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoibG9uZ2VyIG9iamVjdCBsZW5ndGggaXMgbm90IGEgbXVsdGlwbGUgb2Ygc2hvcnRlciBvYmplY3QgbGVuZ3RoXG4ifQ== -->
+<pre><code>longer object length is not a multiple of shorter object length</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIHVtICAgZG9pcyAgIHRyw6pzIHF1YXRybyAgY2luY28gXG4gICAgIDMgICAgICA2ICAgICAgOSAgICAgMTIgICAgIDE1IFxuIn0= -->
+<pre><code>    um   dois   três quatro  cinco 
+     3      6      9     12     15 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="filtragem" class="section level3">
+<h3>Filtragem</h3>
+<p>Vetores podem ser filtrados por range</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudlsxOjNdXG5gYGAifQ== -->
+<pre class="r"><code>v[1:3]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICB1bSBkb2lzIHRyw6pzIFxuICAgMSAgICAyICAgIDMgXG4ifQ== -->
+<pre><code>  um dois três 
+   1    2    3 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Também podem ser filtrados através de condicionais. O caso abaixo retorna um vetor de boleanos que satisfaça a condição:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA+IDNcbmBgYCJ9 -->
+<pre class="r"><code>v &gt; 3</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIHVtICAgZG9pcyAgIHRyw6pzIHF1YXRybyAgY2luY28gXG4gRkFMU0UgIEZBTFNFICBGQUxTRSAgIFRSVUUgICBUUlVFIFxuIn0= -->
+<pre><code>    um   dois   três quatro  cinco 
+ FALSE  FALSE  FALSE   TRUE   TRUE </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Para retornar os valores este vetor de boleanos deve ir dentro da indexação:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudlt2PjNdXG5gYGAifQ== -->
+<pre class="r"><code>v[v&gt;3]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoicXVhdHJvICBjaW5jbyBcbiAgICAgNCAgICAgIDUgXG4ifQ== -->
+<pre><code>quatro  cinco 
+     4      5 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><br /></p>
+</div>
+<div id="matrizes" class="section level3">
+<h3>Matrizes</h3>
+<p>Matrizes só podem ter um tipo de valor. Inicialização:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTEgPC0gbWF0cml4KDE6MjAsIG5yb3cgPSA0LCBuY29sID0gNSlcbm0xXG5gYGAifQ== -->
+<pre class="r"><code>m1 &lt;- matrix(1:20, nrow = 4, ncol = 5)
+m1</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXSBbLDRdIFssNV1cblsxLF0gICAgMSAgICA1ICAgIDkgICAxMyAgIDE3XG5bMixdICAgIDIgICAgNiAgIDEwICAgMTQgICAxOFxuWzMsXSAgICAzICAgIDcgICAxMSAgIDE1ICAgMTlcbls0LF0gICAgNCAgICA4ICAgMTIgICAxNiAgIDIwXG4ifQ== -->
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    5    9   13   17
+[2,]    2    6   10   14   18
+[3,]    3    7   11   15   19
+[4,]    4    8   12   16   20</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="operacoes-com-matrizes" class="section level4">
+<h4>Operações com matrizes</h4>
+<p>A lógica para operações com escalares é a mesma para vetores:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTEgKiA1XG5gYGAifQ== -->
+<pre class="r"><code>m1 * 5</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXSBbLDRdIFssNV1cblsxLF0gICAgNSAgIDI1ICAgNDUgICA2NSAgIDg1XG5bMixdICAgMTAgICAzMCAgIDUwICAgNzAgICA5MFxuWzMsXSAgIDE1ICAgMzUgICA1NSAgIDc1ICAgOTVcbls0LF0gICAyMCAgIDQwICAgNjAgICA4MCAgMTAwXG4ifQ== -->
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    5   25   45   65   85
+[2,]   10   30   50   70   90
+[3,]   15   35   55   75   95
+[4,]   20   40   60   80  100</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Em operações com vetores cada coluna da matriz é percorrida pelo vetor em ordem e depois se repete:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTEgKiB2XG5gYGAifQ== -->
+<pre class="r"><code>m1 * v</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXSBbLDRdIFssNV1cblsxLF0gICAgMSAgIDI1ICAgMzYgICAzOSAgIDM0XG5bMixdICAgIDQgICAgNiAgIDUwICAgNTYgICA1NFxuWzMsXSAgICA5ICAgMTQgICAxMSAgIDc1ICAgNzZcbls0LF0gICAxNiAgIDI0ICAgMjQgICAxNiAgMTAwXG4ifQ== -->
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1   25   36   39   34
+[2,]    4    6   50   56   54
+[3,]    9   14   11   75   76
+[4,]   16   24   24   16  100</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUG9ydGZvbGlvIGRhIGRpc2NpcGxpbmEgSUEgY29tIFIiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgojIyMjT3BlcmHDp8O1ZXMgQsOhc2ljYXMKCmBgYHtyfQpuIDwtICgoNSArIDUpICogNCkgLyAyCm4Kc3FydChuICsgNSkgLT4gc3EKc3EKc3EgXiAzCmBgYAoKIyMjI1ZldG9yZXMgKGluaWNpYWxpemHDp8OjbykKYGBge3J9CnYgPC0gYygxLDIsMyw0LDUpCnYKdiA8LSAxOjUKdgpzZXEoNSkgLT4gdgp2CnYgKiBuCnYgKiogMgp2IDwtIHNlcS5pbnQoZnJvbSA9IDEsIHRvID0gNSwgYnkgPSAxKQp2CnZpcyA8LSB2WzFdICsgdlszXQp2aXMKCnZfbmFtZXMgPC0gYygidW0iLCAiZG9pcyIsICJ0csOqcyIsICJxdWF0cm8iLCAiY2luY28iKQpuYW1lcyh2KSA8LSB2X25hbWVzCnYKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUG9ydGZvbGlvIGRhIGRpc2NpcGxpbmEgSUEgY29tIFIiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KPGJyIC8+CgojIyNBdHJ1YnVpw6fDo28gZGUgdmFyacOhdmVpcwoKYGBge3J9Cm4gPC0gKCg1ICsgNSkgKiA0KSAvIDIKbgpzcXJ0KG4gKyA1KSAtPiBzcQpzcQpzcSBeIDMKYGBgCjxiciAvPgoKIyMjVmV0b3JlcwpgYGB7cn0KdiA8LSBjKDEsMiwzLDQsNSkKdgp2IDwtIDE6NQp2CnNlcSg1KSAtPiB2CnYKdiA8LSBzZXEuaW50KGZyb20gPSAxLCB0byA9IDUsIGJ5ID0gMSkKdgpgYGAKPGJyIC8+ClZldG9yZXMgcG9kZW0gdGVyIHNldXMgw61uZGljZXMgbm9tZWFkb3M6CmBgYHtyfQp2X25hbWVzIDwtIGMoInVtIiwgImRvaXMiLCAidHLDqnMiLCAicXVhdHJvIiwgImNpbmNvIikKbmFtZXModikgPC0gdl9uYW1lcwp2CmBgYAoKCiMjIyNPcGVyYcOnw7VlcyBjb20gdmV0b3JlcwpFbSB1bWEgb3BlcmHDp8OjbyBlbnRyZSB1bSB2ZXRvciBlIHVtIGVzY2FsYXIgdG9kb3Mgb3Mgw61uZGljZXMgc29mcmVtIGEgb3BlcmHDp8OjbzoKYGBge3J9CnYgKiBuCgp2ICoqIDIKYGBgCsOJIHBvc3PDrXZlbCBvcGVyYXIgw61uZGljZXMgZXNwZWPDrWZpY29zOgpgYGB7cn0KdmlzIDwtIHZbMV0gKyB2WzNdCnZpcwpgYGAKUXVuYWRvIGEgb3BlcmHDp8OjbyDDqSBmZWl0YSBlbnRyZSBkb2lzIHZldG9yZXMgZG8gbWVzbW8gdGFtYW5obyB0b2RvcyBvcyBpbmRpY2VzIHPDo28gb3BlcmFkb3MgcGVsb3MgaW5kaWNlcyBkbyBvdXRybyB2ZXRvcjoKYGBge3J9CnYyIDwtIGMoMiwyLDIsMiwyKQp2ICt2MgpgYGAKU2Ugb3MgdGFtYW5ob3MgZm9yZW0gZGlmZXJlbnRlcyBhIG9wZXJhw6fDo28gw6kgcmVhbGl6YWRhIGNvbSB1bSBhdmlzby4gT3MgdmFsb3JlcyBkbyB2ZXRvciBtZW5vciBzw6NvIHJlcGV0aWRvcyBuYSBvcGVyYcOnw6NvOgpgYGB7cn0KdjIgPC0gYygzLDMsMykKdiAqIHYyCmBgYAoKIyMjRmlsdHJhZ2VtClZldG9yZXMgcG9kZW0gc2VyIGZpbHRyYWRvcyBwb3IgcmFuZ2UKYGBge3J9CnZbMTozXQpgYGAKVGFtYsOpbSBwb2RlbSBzZXIgZmlsdHJhZG9zIGF0cmF2w6lzIGRlIGNvbmRpY2lvbmFpcy4gTyBjYXNvIGFiYWl4byByZXRvcm5hIHVtIHZldG9yIGRlIGJvbGVhbm9zIHF1ZSBzYXRpc2Zhw6dhIGEgY29uZGnDp8OjbzoKYGBge3J9CnYgPiAzCmBgYApQYXJhIHJldG9ybmFyIG9zIHZhbG9yZXMgZXN0ZSB2ZXRvciBkZSBib2xlYW5vcyBkZXZlIGlyIGRlbnRybyBkYSBpbmRleGHDp8OjbzoKYGBge3J9CnZbdj4zXQpgYGAKPGJyIC8+CgojIyNNYXRyaXplcwpNYXRyaXplcyBzw7MgcG9kZW0gdGVyIHVtIHRpcG8gZGUgdmFsb3IuIEluaWNpYWxpemHDp8OjbzoKYGBge3J9Cm0xIDwtIG1hdHJpeCgxOjIwLCBucm93ID0gNCwgbmNvbCA9IDUpCm0xCmBgYAojIyMjT3BlcmHDp8O1ZXMgY29tIG1hdHJpemVzCkEgbMOzZ2ljYSBwYXJhIG9wZXJhw6fDtWVzIGNvbSBlc2NhbGFyZXMgw6kgYSBtZXNtYSBwYXJhIHZldG9yZXM6CmBgYHtyfQptMSAqIDUKYGBgCkVtIG9wZXJhw6fDtWVzIGNvbSB2ZXRvcmVzIGNhZGEgY29sdW5hIGRhIG1hdHJpeiDDqSBwZXJjb3JyaWRhIHBlbG8gdmV0b3IgZW0gb3JkZW0gZSBkZXBvaXMgc2UgcmVwZXRlOgpgYGB7cn0KbTEgKiB2CmBgYAoKCg==</div>
 
 
 

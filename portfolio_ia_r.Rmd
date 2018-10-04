@@ -2,9 +2,9 @@
 title: "Portfolio da disciplina IA com R"
 output: html_notebook
 ---
+<br />
 
-
-####Operações Básicas
+###Atrubuição de variáveis
 
 ```{r}
 n <- ((5 + 5) * 4) / 2
@@ -13,8 +13,9 @@ sqrt(n + 5) -> sq
 sq
 sq ^ 3
 ```
+<br />
 
-####Vetores (inicialização)
+###Vetores
 ```{r}
 v <- c(1,2,3,4,5)
 v
@@ -22,15 +23,70 @@ v <- 1:5
 v
 seq(5) -> v
 v
-v * n
-v ** 2
 v <- seq.int(from = 1, to = 5, by = 1)
 v
-vis <- v[1] + v[3]
-vis
-
+```
+<br />
+Vetores podem ter seus índices nomeados:
+```{r}
 v_names <- c("um", "dois", "três", "quatro", "cinco")
 names(v) <- v_names
 v
 ```
+
+
+####Operações com vetores
+Em uma operação entre um vetor e um escalar todos os índices sofrem a operação:
+```{r}
+v * n
+
+v ** 2
+```
+É possível operar índices específicos:
+```{r}
+vis <- v[1] + v[3]
+vis
+```
+Qunado a operação é feita entre dois vetores do mesmo tamanho todos os indices são operados pelos indices do outro vetor:
+```{r}
+v2 <- c(2,2,2,2,2)
+v +v2
+```
+Se os tamanhos forem diferentes a operação é realizada com um aviso. Os valores do vetor menor são repetidos na operação:
+```{r}
+v2 <- c(3,3,3)
+v * v2
+```
+
+###Filtragem
+Vetores podem ser filtrados por range
+```{r}
+v[1:3]
+```
+Também podem ser filtrados através de condicionais. O caso abaixo retorna um vetor de boleanos que satisfaça a condição:
+```{r}
+v > 3
+```
+Para retornar os valores este vetor de boleanos deve ir dentro da indexação:
+```{r}
+v[v>3]
+```
+<br />
+
+###Matrizes
+Matrizes só podem ter um tipo de valor. Inicialização:
+```{r}
+m1 <- matrix(1:20, nrow = 4, ncol = 5)
+m1
+```
+####Operações com matrizes
+A lógica para operações com escalares é a mesma para vetores:
+```{r}
+m1 * 5
+```
+Em operações com vetores cada coluna da matriz é percorrida pelo vetor em ordem e depois se repete:
+```{r}
+m1 * v
+```
+
 
