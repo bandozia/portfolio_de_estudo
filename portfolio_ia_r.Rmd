@@ -4,7 +4,37 @@ output: html_notebook
 ---
 <br />
 
-###Atrubuição de variáveis
+<hr />
+
+###Índice
+<ul>
+  <li>[Uso básico da linguagem](#basico)</li>
+  <ul>
+  <li>[Variáveis](#variaveis)</li>
+  <li>[Vetores](#vetores)</li>
+  <li>[Operaçẽos com vetores](#vec_ops)</li>
+  <li>[Matrizes](#matrizes)</li>
+  <li>[Operações com matrizes](#matrix_ops)</li>
+  </ul>
+  
+  <li>[Funções internas](#int_func)</li>
+  <ul>
+  <li>[Funções internas para aritmética em geral](#int_func_geral)</li>
+  </ul>
+  
+  <li>[Aplicação em estatística](#aplic_estat)</li>
+  <ul>
+  <li>[Desvio Padrão](#desvio_padrao)</li>
+  <li>[Regressão Linear](#regressao_linear)</li>
+  </ul>
+  
+</ul>
+
+<hr />
+
+## <a name="basico"></a>Uso básico da linguagem
+
+### <a name="variaveis"></a>Atrubuição de variáveis
 
 ```{r}
 n <- ((5 + 5) * 4) / 2
@@ -15,7 +45,7 @@ sq ^ 3
 ```
 <br />
 
-###Vetores
+###<a name="vetores"></a> Vetores
 ```{r}
 v <- c(1,2,3,4,5)
 v
@@ -35,7 +65,7 @@ v
 ```
 
 
-####Operações com vetores
+####<a name="vec_ops"></a> Operações com vetores
 Em uma operação entre um vetor e um escalar todos os índices sofrem a operação:
 ```{r}
 v * n
@@ -73,20 +103,95 @@ v[v>3]
 ```
 <br />
 
-###Matrizes
+###<a name="matrizes"></a> Matrizes
 Matrizes só podem ter um tipo de valor. Inicialização:
 ```{r}
 m1 <- matrix(1:20, nrow = 4, ncol = 5)
 m1
 ```
-####Operações com matrizes
+####<a name="matrix_ops"></a> Operações com matrizes
 A lógica para operações com escalares é a mesma para vetores:
 ```{r}
 m1 * 5
 ```
-Em operações com vetores cada coluna da matriz é percorrida pelo vetor em ordem e depois se repete:
+Em operações com vetores e matrizes cada coluna da matriz é percorrida pelo vetor em ordem e depois se repete:
 ```{r}
 m1 * v
 ```
 
+Os valores de duas matrize podem ser operados se elas possuirem a mesma quantidade de linhas e colunas:
 
+```{r}
+m2 <- matrix(20:39, nrow = 4, ncol = 5)
+m1 * m2
+m1 + m2
+```
+
+Para de fato multiplcar duas matrizes a regra matemática precisa se respeitada (l1 = c2). O operador correto é %*%
+
+```{r}
+m3 <- matrix(1:20, nrow = 5, ncol = 4)
+m1 %*% m3
+```
+
+
+<br />
+
+##<a name="int_func"></a> Funções Internas
+
+###<a name="int_func_geral"></a> Funções para aritimética em geral
+
+<br />
+
+####Soma (sum). 
+Soma todos os valores de um vetor
+```{r}
+random_vec <- sample(30)
+random_vec
+sum(random_vec)
+```
+<br />
+
+Também pode ser utilizado junto com filtragem, para contar a quantidade de ocorrencias dada uma determinada condição:
+```{r}
+sum(mtcars$gear == 4)
+```
+Neste caso o resultado indicad que a tabela "mtcars" possui 12 ocorrencias cuja coluna gear é igaual a 4, ou seja, 12 carros de 4 marchas
+
+<br />
+
+####Média Aritimética símples
+###$\bar{x} = \frac{\sum_{i=1}^n x_{i}}{n}$
+```{r}
+vec_m <- c(1,2,3,4,5,6,7,8,9,10,30)
+mean(vec_m)
+
+```
+####Mediana
+
+```{r}
+median(vec_m)
+```
+
+
+
+## <a name="aplic_estat"></a> Aplicação em estatística
+
+<br />
+
+####<a name="desvio_padrao"></a>Desivo padrão
+####$\sigma = \sqrt{\frac{\sum_{i=1(xi_{i} - \bar{x})^2}^{n}}{n}}$
+
+<br />
+
+```{r}
+vec_var <- sample(20)
+vec_var
+sd(vec_var)
+
+```
+
+
+<br />
+
+### <a name="regressao_linear"></a> Regressão Lianear

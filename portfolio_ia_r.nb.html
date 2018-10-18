@@ -177,8 +177,56 @@ $(document).ready(function () {
 
 <!-- rnb-text-begin -->
 <p><br /></p>
+<hr />
+<div id="indice" class="section level3">
+<h3>Índice</h3>
+<ul>
+<li>
+<a href="#basico">Uso básico da linguagem</a>
+</li>
+<ul>
+<li>
+<a href="#variaveis">Variáveis</a>
+</li>
+<li>
+<a href="#vetores">Vetores</a>
+</li>
+<li>
+<a href="#vec_ops">Operaçẽos com vetores</a>
+</li>
+<li>
+<a href="#matrizes">Matrizes</a>
+</li>
+<li>
+<a href="#matrix_ops">Operações com matrizes</a>
+</li>
+</ul>
+<li>
+<a href="#int_func">Funções internas</a>
+</li>
+<ul>
+<li>
+<a href="#int_func_geral">Funções internas para aritmética em geral</a>
+</li>
+</ul>
+<li>
+<a href="#aplic_estat">Aplicação em estatística</a>
+</li>
+<ul>
+<li>
+<a href="#desvio_padrao">Desvio Padrão</a>
+</li>
+<li>
+<a href="#regressao_linear">Regressão Linear</a>
+</li>
+</ul>
+</ul>
+<hr />
+</div>
+<div id="uso-basico-da-linguagem" class="section level2">
+<h2><a name="basico"></a>Uso básico da linguagem</h2>
 <div id="atrubuicao-de-variaveis" class="section level3">
-<h3>Atrubuição de variáveis</h3>
+<h3><a name="variaveis"></a>Atrubuição de variáveis</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubiA8LSAoKDUgKyA1KSAqIDQpIC8gMlxublxuYGBgIn0= -->
@@ -206,7 +254,7 @@ sq</code></pre>
 <p><br /></p>
 </div>
 <div id="vetores" class="section level3">
-<h3>Vetores</h3>
+<h3><a name="vetores"></a> Vetores</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudiA8LSBjKDEsMiwzLDQsNSlcbnZcbmBgYCJ9 -->
@@ -254,7 +302,7 @@ v</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="operacoes-com-vetores" class="section level4">
-<h4>Operações com vetores</h4>
+<h4><a name="vec_ops"></a> Operações com vetores</h4>
 <p>Em uma operação entre um vetor e um escalar todos os índices sofrem a operação:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -359,7 +407,7 @@ v * v2</code></pre>
 <p><br /></p>
 </div>
 <div id="matrizes" class="section level3">
-<h3>Matrizes</h3>
+<h3><a name="matrizes"></a> Matrizes</h3>
 <p>Matrizes só podem ter um tipo de valor. Inicialização:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -377,7 +425,7 @@ m1</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="operacoes-com-matrizes" class="section level4">
-<h4>Operações com matrizes</h4>
+<h4><a name="matrix_ops"></a> Operações com matrizes</h4>
 <p>A lógica para operações com escalares é a mesma para vetores:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -393,7 +441,7 @@ m1</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Em operações com vetores cada coluna da matriz é percorrida pelo vetor em ordem e depois se repete:</p>
+<p>Em operações com vetores e matrizes cada coluna da matriz é percorrida pelo vetor em ordem e depois se repete:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTEgKiB2XG5gYGAifQ== -->
@@ -408,11 +456,159 @@ m1</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Os valores de duas matrize podem ser operados se elas possuirem a mesma quantidade de linhas e colunas:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTIgPC0gbWF0cml4KDIwOjM5LCBucm93ID0gNCwgbmNvbCA9IDUpXG5tMSAqIG0yXG5gYGAifQ== -->
+<pre class="r"><code>m2 &lt;- matrix(20:39, nrow = 4, ncol = 5)
+m1 * m2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXSBbLDRdIFssNV1cblsxLF0gICAyMCAgMTIwICAyNTIgIDQxNiAgNjEyXG5bMixdICAgNDIgIDE1MCAgMjkwICA0NjIgIDY2NlxuWzMsXSAgIDY2ICAxODIgIDMzMCAgNTEwICA3MjJcbls0LF0gICA5MiAgMjE2ICAzNzIgIDU2MCAgNzgwXG4ifQ== -->
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]   20  120  252  416  612
+[2,]   42  150  290  462  666
+[3,]   66  182  330  510  722
+[4,]   92  216  372  560  780</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTEgKyBtMlxuYGBgIn0= -->
+<pre class="r"><code>m1 + m2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXSBbLDRdIFssNV1cblsxLF0gICAyMSAgIDI5ICAgMzcgICA0NSAgIDUzXG5bMixdICAgMjMgICAzMSAgIDM5ICAgNDcgICA1NVxuWzMsXSAgIDI1ICAgMzMgICA0MSAgIDQ5ICAgNTdcbls0LF0gICAyNyAgIDM1ICAgNDMgICA1MSAgIDU5XG4ifQ== -->
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]   21   29   37   45   53
+[2,]   23   31   39   47   55
+[3,]   25   33   41   49   57
+[4,]   27   35   43   51   59</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Para de fato multiplcar duas matrizes a regra matemática precisa se respeitada (l1 = c2). O operador correto é %*%</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubTMgPC0gbWF0cml4KDE6MjAsIG5yb3cgPSA1LCBuY29sID0gNClcbm0xICUqJSBtM1xuYGBgIn0= -->
+<pre class="r"><code>m3 &lt;- matrix(1:20, nrow = 5, ncol = 4)
+m1 %*% m3</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdIFssMl0gWywzXSBbLDRdXG5bMSxdICAxNzUgIDQwMCAgNjI1ICA4NTBcblsyLF0gIDE5MCAgNDQwICA2OTAgIDk0MFxuWzMsXSAgMjA1ICA0ODAgIDc1NSAxMDMwXG5bNCxdICAyMjAgIDUyMCAgODIwIDExMjBcbiJ9 -->
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]  175  400  625  850
+[2,]  190  440  690  940
+[3,]  205  480  755 1030
+[4,]  220  520  820 1120</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><br /></p>
+</div>
+</div>
+</div>
+<div id="funcoes-internas" class="section level2">
+<h2><a name="int_func"></a> Funções Internas</h2>
+<div id="funcoes-para-aritimetica-em-geral" class="section level3">
+<h3><a name="int_func_geral"></a> Funções para aritimética em geral</h3>
+<p><br /></p>
+<div id="soma-sum." class="section level4">
+<h4>Soma (sum).</h4>
+<p>Soma todos os valores de um vetor</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmFuZG9tX3ZlYyA8LSBzYW1wbGUoMzApXG5yYW5kb21fdmVjXG5gYGAifQ== -->
+<pre class="r"><code>random_vec &lt;- sample(30)
+random_vec</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAyNCAgNyAxNCAyMSAgNSAxOSAyOCAgNCAxOCAxNSAgMSAgNiAxMyAyNiAxNiAgOCAgMiAyNyAxMiAxMCAxNyAgOSAyMyAzMCAyMCAyNSAgMyAxMSAyMiAyOVxuIn0= -->
+<pre><code> [1] 24  7 14 21  5 19 28  4 18 15  1  6 13 26 16  8  2 27 12 10 17  9 23 30 20 25  3 11 22 29</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtKHJhbmRvbV92ZWMpXG5gYGAifQ== -->
+<pre class="r"><code>sum(random_vec)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDQ2NVxuIn0= -->
+<pre><code>[1] 465</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><br /></p>
+<p>Também pode ser utilizado junto com filtragem, para contar a quantidade de ocorrencias dada uma determinada condição:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtKG10Y2FycyRnZWFyID09IDQpXG5gYGAifQ== -->
+<pre class="r"><code>sum(mtcars$gear == 4)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEyXG4ifQ== -->
+<pre><code>[1] 12</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Neste caso o resultado indicad que a tabela “mtcars” possui 12 ocorrencias cuja coluna gear é igaual a 4, ou seja, 12 carros de 4 marchas</p>
+<p><br /></p>
+</div>
+<div id="media-aritimetica-simples" class="section level4">
+<h4>Média Aritimética símples</h4>
+</div>
+</div>
+<div id="barx-fracsum_i1n-x_in" class="section level3">
+<h3><span class="math inline">\(\bar{x} = \frac{\sum_{i=1}^n x_{i}}{n}\)</span></h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmVjX20gPC0gYygxLDIsMyw0LDUsNiw3LDgsOSwxMCwzMClcbm1lYW4odmVjX20pXG5gYGAifQ== -->
+<pre class="r"><code>vec_m &lt;- c(1,2,3,4,5,6,7,8,9,10,30)
+mean(vec_m)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDcuNzI3MjczXG4ifQ== -->
+<pre><code>[1] 7.727273</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="mediana" class="section level4">
+<h4>Mediana</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVkaWFuKHZlY19tKVxuYGBgIn0= -->
+<pre class="r"><code>median(vec_m)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDZcbiJ9 -->
+<pre><code>[1] 6</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+</div>
+<div id="aplicacao-em-estatistica" class="section level2">
+<h2><a name="aplic_estat"></a> Aplicação em estatística</h2>
+<p><br /></p>
+<div id="desivo-padrao" class="section level4">
+<h4><a name="desvio_padrao"></a>Desivo padrão</h4>
+</div>
+<div id="sigma-sqrtfracsum_i1xi_i---barx2nn" class="section level4">
+<h4><span class="math inline">\(\sigma = \sqrt{\frac{\sum_{i=1(xi_{i} - \bar{x})^2}^{n}}{n}}\)</span></h4>
+<p><br /></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmVjX3ZhciA8LSBzYW1wbGUoMjApXG52ZWNfdmFyXG5gYGAifQ== -->
+<pre class="r"><code>vec_var &lt;- sample(20)
+vec_var</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAxMCAyMCAxNSAgMiAxMiAgMSAxOCAgNyAxNCAgNSAgNCAxNyAgMyAgNiAgOCAxMSAgOSAxOSAxNiAxM1xuIn0= -->
+<pre><code> [1] 10 20 15  2 12  1 18  7 14  5  4 17  3  6  8 11  9 19 16 13</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2QodmVjX3ZhcilcbmBgYCJ9 -->
+<pre class="r"><code>sd(vec_var)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDUuOTE2MDhcbiJ9 -->
+<pre><code>[1] 5.91608</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><br /></p>
+</div>
+<div id="regressao-lianear" class="section level3">
+<h3><a name="regressao_linear"></a> Regressão Lianear</h3>
 <!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUG9ydGZvbGlvIGRhIGRpc2NpcGxpbmEgSUEgY29tIFIiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KPGJyIC8+CgojIyNBdHJ1YnVpw6fDo28gZGUgdmFyacOhdmVpcwoKYGBge3J9Cm4gPC0gKCg1ICsgNSkgKiA0KSAvIDIKbgpzcXJ0KG4gKyA1KSAtPiBzcQpzcQpzcSBeIDMKYGBgCjxiciAvPgoKIyMjVmV0b3JlcwpgYGB7cn0KdiA8LSBjKDEsMiwzLDQsNSkKdgp2IDwtIDE6NQp2CnNlcSg1KSAtPiB2CnYKdiA8LSBzZXEuaW50KGZyb20gPSAxLCB0byA9IDUsIGJ5ID0gMSkKdgpgYGAKPGJyIC8+ClZldG9yZXMgcG9kZW0gdGVyIHNldXMgw61uZGljZXMgbm9tZWFkb3M6CmBgYHtyfQp2X25hbWVzIDwtIGMoInVtIiwgImRvaXMiLCAidHLDqnMiLCAicXVhdHJvIiwgImNpbmNvIikKbmFtZXModikgPC0gdl9uYW1lcwp2CmBgYAoKCiMjIyNPcGVyYcOnw7VlcyBjb20gdmV0b3JlcwpFbSB1bWEgb3BlcmHDp8OjbyBlbnRyZSB1bSB2ZXRvciBlIHVtIGVzY2FsYXIgdG9kb3Mgb3Mgw61uZGljZXMgc29mcmVtIGEgb3BlcmHDp8OjbzoKYGBge3J9CnYgKiBuCgp2ICoqIDIKYGBgCsOJIHBvc3PDrXZlbCBvcGVyYXIgw61uZGljZXMgZXNwZWPDrWZpY29zOgpgYGB7cn0KdmlzIDwtIHZbMV0gKyB2WzNdCnZpcwpgYGAKUXVuYWRvIGEgb3BlcmHDp8OjbyDDqSBmZWl0YSBlbnRyZSBkb2lzIHZldG9yZXMgZG8gbWVzbW8gdGFtYW5obyB0b2RvcyBvcyBpbmRpY2VzIHPDo28gb3BlcmFkb3MgcGVsb3MgaW5kaWNlcyBkbyBvdXRybyB2ZXRvcjoKYGBge3J9CnYyIDwtIGMoMiwyLDIsMiwyKQp2ICt2MgpgYGAKU2Ugb3MgdGFtYW5ob3MgZm9yZW0gZGlmZXJlbnRlcyBhIG9wZXJhw6fDo28gw6kgcmVhbGl6YWRhIGNvbSB1bSBhdmlzby4gT3MgdmFsb3JlcyBkbyB2ZXRvciBtZW5vciBzw6NvIHJlcGV0aWRvcyBuYSBvcGVyYcOnw6NvOgpgYGB7cn0KdjIgPC0gYygzLDMsMykKdiAqIHYyCmBgYAoKIyMjRmlsdHJhZ2VtClZldG9yZXMgcG9kZW0gc2VyIGZpbHRyYWRvcyBwb3IgcmFuZ2UKYGBge3J9CnZbMTozXQpgYGAKVGFtYsOpbSBwb2RlbSBzZXIgZmlsdHJhZG9zIGF0cmF2w6lzIGRlIGNvbmRpY2lvbmFpcy4gTyBjYXNvIGFiYWl4byByZXRvcm5hIHVtIHZldG9yIGRlIGJvbGVhbm9zIHF1ZSBzYXRpc2Zhw6dhIGEgY29uZGnDp8OjbzoKYGBge3J9CnYgPiAzCmBgYApQYXJhIHJldG9ybmFyIG9zIHZhbG9yZXMgZXN0ZSB2ZXRvciBkZSBib2xlYW5vcyBkZXZlIGlyIGRlbnRybyBkYSBpbmRleGHDp8OjbzoKYGBge3J9CnZbdj4zXQpgYGAKPGJyIC8+CgojIyNNYXRyaXplcwpNYXRyaXplcyBzw7MgcG9kZW0gdGVyIHVtIHRpcG8gZGUgdmFsb3IuIEluaWNpYWxpemHDp8OjbzoKYGBge3J9Cm0xIDwtIG1hdHJpeCgxOjIwLCBucm93ID0gNCwgbmNvbCA9IDUpCm0xCmBgYAojIyMjT3BlcmHDp8O1ZXMgY29tIG1hdHJpemVzCkEgbMOzZ2ljYSBwYXJhIG9wZXJhw6fDtWVzIGNvbSBlc2NhbGFyZXMgw6kgYSBtZXNtYSBwYXJhIHZldG9yZXM6CmBgYHtyfQptMSAqIDUKYGBgCkVtIG9wZXJhw6fDtWVzIGNvbSB2ZXRvcmVzIGNhZGEgY29sdW5hIGRhIG1hdHJpeiDDqSBwZXJjb3JyaWRhIHBlbG8gdmV0b3IgZW0gb3JkZW0gZSBkZXBvaXMgc2UgcmVwZXRlOgpgYGB7cn0KbTEgKiB2CmBgYAoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUG9ydGZvbGlvIGRhIGRpc2NpcGxpbmEgSUEgY29tIFIiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KPGJyIC8+Cgo8aHIgLz4KCiMjI8ONbmRpY2UKPHVsPgogIDxsaT5bVXNvIGLDoXNpY28gZGEgbGluZ3VhZ2VtXSgjYmFzaWNvKTwvbGk+CiAgPHVsPgogIDxsaT5bVmFyacOhdmVpc10oI3ZhcmlhdmVpcyk8L2xpPgogIDxsaT5bVmV0b3Jlc10oI3ZldG9yZXMpPC9saT4KICA8bGk+W09wZXJhw6fhur1vcyBjb20gdmV0b3Jlc10oI3ZlY19vcHMpPC9saT4KICA8bGk+W01hdHJpemVzXSgjbWF0cml6ZXMpPC9saT4KICA8bGk+W09wZXJhw6fDtWVzIGNvbSBtYXRyaXplc10oI21hdHJpeF9vcHMpPC9saT4KICA8L3VsPgogIAogIDxsaT5bRnVuw6fDtWVzIGludGVybmFzXSgjaW50X2Z1bmMpPC9saT4KICA8dWw+CiAgPGxpPltGdW7Dp8O1ZXMgaW50ZXJuYXMgcGFyYSBhcml0bcOpdGljYSBlbSBnZXJhbF0oI2ludF9mdW5jX2dlcmFsKTwvbGk+CiAgPC91bD4KICAKICA8bGk+W0FwbGljYcOnw6NvIGVtIGVzdGF0w61zdGljYV0oI2FwbGljX2VzdGF0KTwvbGk+CiAgPHVsPgogIDxsaT5bRGVzdmlvIFBhZHLDo29dKCNkZXN2aW9fcGFkcmFvKTwvbGk+CiAgPGxpPltSZWdyZXNzw6NvIExpbmVhcl0oI3JlZ3Jlc3Nhb19saW5lYXIpPC9saT4KICA8L3VsPgogIAo8L3VsPgoKPGhyIC8+CgojIyA8YSBuYW1lPSJiYXNpY28iPjwvYT5Vc28gYsOhc2ljbyBkYSBsaW5ndWFnZW0KCiMjIyA8YSBuYW1lPSJ2YXJpYXZlaXMiPjwvYT5BdHJ1YnVpw6fDo28gZGUgdmFyacOhdmVpcwoKYGBge3J9Cm4gPC0gKCg1ICsgNSkgKiA0KSAvIDIKbgpzcXJ0KG4gKyA1KSAtPiBzcQpzcQpzcSBeIDMKYGBgCjxiciAvPgoKIyMjPGEgbmFtZT0idmV0b3JlcyI+PC9hPiBWZXRvcmVzCmBgYHtyfQp2IDwtIGMoMSwyLDMsNCw1KQp2CnYgPC0gMTo1CnYKc2VxKDUpIC0+IHYKdgp2IDwtIHNlcS5pbnQoZnJvbSA9IDEsIHRvID0gNSwgYnkgPSAxKQp2CmBgYAo8YnIgLz4KVmV0b3JlcyBwb2RlbSB0ZXIgc2V1cyDDrW5kaWNlcyBub21lYWRvczoKYGBge3J9CnZfbmFtZXMgPC0gYygidW0iLCAiZG9pcyIsICJ0csOqcyIsICJxdWF0cm8iLCAiY2luY28iKQpuYW1lcyh2KSA8LSB2X25hbWVzCnYKYGBgCgoKIyMjIzxhIG5hbWU9InZlY19vcHMiPjwvYT4gT3BlcmHDp8O1ZXMgY29tIHZldG9yZXMKRW0gdW1hIG9wZXJhw6fDo28gZW50cmUgdW0gdmV0b3IgZSB1bSBlc2NhbGFyIHRvZG9zIG9zIMOtbmRpY2VzIHNvZnJlbSBhIG9wZXJhw6fDo286CmBgYHtyfQp2ICogbgoKdiAqKiAyCmBgYArDiSBwb3Nzw612ZWwgb3BlcmFyIMOtbmRpY2VzIGVzcGVjw61maWNvczoKYGBge3J9CnZpcyA8LSB2WzFdICsgdlszXQp2aXMKYGBgClF1bmFkbyBhIG9wZXJhw6fDo28gw6kgZmVpdGEgZW50cmUgZG9pcyB2ZXRvcmVzIGRvIG1lc21vIHRhbWFuaG8gdG9kb3Mgb3MgaW5kaWNlcyBzw6NvIG9wZXJhZG9zIHBlbG9zIGluZGljZXMgZG8gb3V0cm8gdmV0b3I6CmBgYHtyfQp2MiA8LSBjKDIsMiwyLDIsMikKdiArdjIKYGBgClNlIG9zIHRhbWFuaG9zIGZvcmVtIGRpZmVyZW50ZXMgYSBvcGVyYcOnw6NvIMOpIHJlYWxpemFkYSBjb20gdW0gYXZpc28uIE9zIHZhbG9yZXMgZG8gdmV0b3IgbWVub3Igc8OjbyByZXBldGlkb3MgbmEgb3BlcmHDp8OjbzoKYGBge3J9CnYyIDwtIGMoMywzLDMpCnYgKiB2MgpgYGAKCiMjI0ZpbHRyYWdlbQpWZXRvcmVzIHBvZGVtIHNlciBmaWx0cmFkb3MgcG9yIHJhbmdlCmBgYHtyfQp2WzE6M10KYGBgClRhbWLDqW0gcG9kZW0gc2VyIGZpbHRyYWRvcyBhdHJhdsOpcyBkZSBjb25kaWNpb25haXMuIE8gY2FzbyBhYmFpeG8gcmV0b3JuYSB1bSB2ZXRvciBkZSBib2xlYW5vcyBxdWUgc2F0aXNmYcOnYSBhIGNvbmRpw6fDo286CmBgYHtyfQp2ID4gMwpgYGAKUGFyYSByZXRvcm5hciBvcyB2YWxvcmVzIGVzdGUgdmV0b3IgZGUgYm9sZWFub3MgZGV2ZSBpciBkZW50cm8gZGEgaW5kZXhhw6fDo286CmBgYHtyfQp2W3Y+M10KYGBgCjxiciAvPgoKIyMjPGEgbmFtZT0ibWF0cml6ZXMiPjwvYT4gTWF0cml6ZXMKTWF0cml6ZXMgc8OzIHBvZGVtIHRlciB1bSB0aXBvIGRlIHZhbG9yLiBJbmljaWFsaXphw6fDo286CmBgYHtyfQptMSA8LSBtYXRyaXgoMToyMCwgbnJvdyA9IDQsIG5jb2wgPSA1KQptMQpgYGAKIyMjIzxhIG5hbWU9Im1hdHJpeF9vcHMiPjwvYT4gT3BlcmHDp8O1ZXMgY29tIG1hdHJpemVzCkEgbMOzZ2ljYSBwYXJhIG9wZXJhw6fDtWVzIGNvbSBlc2NhbGFyZXMgw6kgYSBtZXNtYSBwYXJhIHZldG9yZXM6CmBgYHtyfQptMSAqIDUKYGBgCkVtIG9wZXJhw6fDtWVzIGNvbSB2ZXRvcmVzIGUgbWF0cml6ZXMgY2FkYSBjb2x1bmEgZGEgbWF0cml6IMOpIHBlcmNvcnJpZGEgcGVsbyB2ZXRvciBlbSBvcmRlbSBlIGRlcG9pcyBzZSByZXBldGU6CmBgYHtyfQptMSAqIHYKYGBgCgpPcyB2YWxvcmVzIGRlIGR1YXMgbWF0cml6ZSBwb2RlbSBzZXIgb3BlcmFkb3Mgc2UgZWxhcyBwb3NzdWlyZW0gYSBtZXNtYSBxdWFudGlkYWRlIGRlIGxpbmhhcyBlIGNvbHVuYXM6CgpgYGB7cn0KbTIgPC0gbWF0cml4KDIwOjM5LCBucm93ID0gNCwgbmNvbCA9IDUpCm0xICogbTIKbTEgKyBtMgpgYGAKClBhcmEgZGUgZmF0byBtdWx0aXBsY2FyIGR1YXMgbWF0cml6ZXMgYSByZWdyYSBtYXRlbcOhdGljYSBwcmVjaXNhIHNlIHJlc3BlaXRhZGEgKGwxID0gYzIpLiBPIG9wZXJhZG9yIGNvcnJldG8gw6kgJSolCgpgYGB7cn0KbTMgPC0gbWF0cml4KDE6MjAsIG5yb3cgPSA1LCBuY29sID0gNCkKbTEgJSolIG0zCmBgYAoKCjxiciAvPgoKIyM8YSBuYW1lPSJpbnRfZnVuYyI+PC9hPiBGdW7Dp8O1ZXMgSW50ZXJuYXMKCiMjIzxhIG5hbWU9ImludF9mdW5jX2dlcmFsIj48L2E+IEZ1bsOnw7VlcyBwYXJhIGFyaXRpbcOpdGljYSBlbSBnZXJhbAoKPGJyIC8+CgojIyMjU29tYSAoc3VtKS4gClNvbWEgdG9kb3Mgb3MgdmFsb3JlcyBkZSB1bSB2ZXRvcgpgYGB7cn0KcmFuZG9tX3ZlYyA8LSBzYW1wbGUoMzApCnJhbmRvbV92ZWMKc3VtKHJhbmRvbV92ZWMpCmBgYAo8YnIgLz4KClRhbWLDqW0gcG9kZSBzZXIgdXRpbGl6YWRvIGp1bnRvIGNvbSBmaWx0cmFnZW0sIHBhcmEgY29udGFyIGEgcXVhbnRpZGFkZSBkZSBvY29ycmVuY2lhcyBkYWRhIHVtYSBkZXRlcm1pbmFkYSBjb25kacOnw6NvOgpgYGB7cn0Kc3VtKG10Y2FycyRnZWFyID09IDQpCmBgYApOZXN0ZSBjYXNvIG8gcmVzdWx0YWRvIGluZGljYWQgcXVlIGEgdGFiZWxhICJtdGNhcnMiIHBvc3N1aSAxMiBvY29ycmVuY2lhcyBjdWphIGNvbHVuYSBnZWFyIMOpIGlnYXVhbCBhIDQsIG91IHNlamEsIDEyIGNhcnJvcyBkZSA0IG1hcmNoYXMKCjxiciAvPgoKIyMjI03DqWRpYSBBcml0aW3DqXRpY2Egc8OtbXBsZXMKIyMjJFxiYXJ7eH0gPSBcZnJhY3tcc3VtX3tpPTF9Xm4geF97aX19e259JApgYGB7cn0KdmVjX20gPC0gYygxLDIsMyw0LDUsNiw3LDgsOSwxMCwzMCkKbWVhbih2ZWNfbSkKCmBgYAojIyMjTWVkaWFuYQoKYGBge3J9Cm1lZGlhbih2ZWNfbSkKYGBgCgoKCiMjIDxhIG5hbWU9ImFwbGljX2VzdGF0Ij48L2E+IEFwbGljYcOnw6NvIGVtIGVzdGF0w61zdGljYQoKPGJyIC8+CgojIyMjPGEgbmFtZT0iZGVzdmlvX3BhZHJhbyI+PC9hPkRlc2l2byBwYWRyw6NvCiMjIyMkXHNpZ21hID0gXHNxcnR7XGZyYWN7XHN1bV97aT0xKHhpX3tpfSAtIFxiYXJ7eH0pXjJ9XntufX17bn19JAoKPGJyIC8+CgpgYGB7cn0KdmVjX3ZhciA8LSBzYW1wbGUoMjApCnZlY192YXIKc2QodmVjX3ZhcikKCmBgYAoKCjxiciAvPgoKIyMjIDxhIG5hbWU9InJlZ3Jlc3Nhb19saW5lYXIiPjwvYT4gUmVncmVzc8OjbyBMaWFuZWFyCg==</div>
 
 
 
