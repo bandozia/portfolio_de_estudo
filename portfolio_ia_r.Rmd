@@ -1,12 +1,22 @@
 ---
-title: "Portfolio da disciplina IA com R"
+title: "R <-"
 output: html_notebook
 ---
+<style>
+h3{
+border-bottom:dashed 1px #999999;
+padding-bottom:10px;
+}
+h4{
+color:#444444;
+}
+</style>
+
 <br />
 
 <hr />
 
-###Índice
+####Índice
 <ul>
   <li>[Uso básico da linguagem](#basico)</li>
   <ul>
@@ -28,13 +38,31 @@ output: html_notebook
   <li>[Regressão Linear](#regressao_linear)</li>
   </ul>
   
+  <li>[Graficos](#graficos)</li>
+  <ul>
+  <li>[Scatter](#plot)</li>
+  <li>[Boxplot](#box)</li>
+  <li>[Histograma](#hist)</li>
+  </ul>
+  
+  <li>[Pacotes essenciais](#packages)</li>
+  <ul>
+  <li>[Dplyr](#dplyr)</li>
+  <ul>
+  <li>[Select](#select)</li>
+  <li>[Filter](#filter)</li>
+  <li>[Arrange](#arrange)</li>
+  <li>[Mutate](#mutate)</li>
+  <li>[Pipes](#pipe)</li>
+  </ul>
+  </ul>
+  
 </ul>
 
 <hr />
 
-## <a name="basico"></a>Uso básico da linguagem
-
-### <a name="variaveis"></a>Atrubuição de variáveis
+### <a name="basico"></a>Uso básico da linguagem
+#### <a name="variaveis"></a>Atrubuição de variáveis
 
 ```{r}
 n <- ((5 + 5) * 4) / 2
@@ -137,9 +165,8 @@ m1 %*% m3
 
 <br />
 
-##<a name="int_func"></a> Funções Internas
-
-###<a name="int_func_geral"></a> Funções para aritimética em geral
+###<a name="int_func"></a> Funções Internas
+####<a name="int_func_geral"></a> Funções para aritimética em geral
 
 <br />
 
@@ -161,7 +188,8 @@ Neste caso o resultado indicad que a tabela "mtcars" possui 12 ocorrencias cuja 
 <br />
 
 ####Média Aritimética símples
-###$\bar{x} = \frac{\sum_{i=1}^n x_{i}}{n}$
+##$\bar{x} = \frac{\sum_{i=1}^n x_{i}}{n}$
+
 ```{r}
 vec_m <- c(1,2,3,4,5,6,7,8,9,10,30)
 mean(vec_m)
@@ -175,12 +203,12 @@ median(vec_m)
 
 
 
-## <a name="aplic_estat"></a> Aplicação em estatística
+### <a name="aplic_estat"></a> Aplicação em estatística
 
 <br />
 
 ####<a name="desvio_padrao"></a>Desivo padrão
-####$\sigma = \sqrt{\frac{\sum_{i=1(xi_{i} - \bar{x})^2}^{n}}{n}}$
+##$\sigma = \sqrt{\frac{\sum_{i=1(xi_{i} - \bar{x})^2}^{n}}{n}}$
 
 <br />
 
@@ -195,3 +223,84 @@ sd(vec_var)
 <br />
 
 ### <a name="regressao_linear"></a> Regressão Lianear
+
+Exemplo: Teste da relação entre peso e altura em mulheres:
+```{r}
+women
+regWomen <- lm(women$height ~ women$weight)
+summary(regWomen)
+```
+PONTOS IMPORTANTES:<br />
+o p-value o nível de coorrelação entre as variáveis. Abaixo de 0.05 está dentro do intervalo de confiança de 95%<br />
+O R ajustado indica a capacidade de explicação das variáveis no modelo.<br />
+O resultado possui um p-value extremamente baixo: $1.91^{-14}$, ou seja, alta coorrelação entre as variáveis.<br />
+O R ajustado de 0.9903 indica que este modelo tem capacida de explicação em 99.03% dos casos
+
+
+## <a name="graficos"></a>Gráficos
+
+<br />
+
+### <a name="plot"></a> Scatter
+Cada valor é representado por um ponto no eixo cartesiano
+```{r}
+plot(x = cars$speed, y = cars$dist, main = "Distâncias de parada", xlab = "Velocidade", ylab = "Distância")
+#Também é possível interferir no gráfico que foi plotado. Os dois comandos devem ser executados juntos.
+lines (c(5,25),c(5,80), col='red')
+```
+
+### <a name="box"></a> Boxplot
+Representa graficamente os valores do mínimo, 1,2 e 3 quartil, mediana e máximo.
+```{r}
+boxplot(airquality)
+
+```
+
+### <a name="hist"></a> Histograma
+Histograma das frequencias de um dataset
+```{r}
+hist(mtcars$mpg)
+```
+
+### <a name="dplyr"></a> Dplyr
+#### <a name="select"></a> Select
+Retorna um subset com a sleção de colunas filtradas
+```{r}
+select(mtcars, mpg,hp,qsec,gear)
+```
+Também pode ser usado com ranges:
+```{r}
+select(mtcars, hp:gear)
+```
+<br />
+
+#### <a name="filter"></a> Filter
+Filtra linhas de acordo com condições. Operadores binários podem ser utilizados
+```{r}
+filter(mtcars, hp > 100, wt < 3.000 | qsec > 20.1)
+```
+<br />
+
+#### <a name="arrange"></a> Arrange
+Ordena a tabela de acordo com as variáveis fornecidas. No caso abaixo o primeiro critério de ordenação é a quantidade de cilindros crescente e o segundo é a quantidade de marchas decrescente.
+```{r}
+arrange(mtcars, cyl, desc(gear))
+```
+<br />
+
+#### <a name="arrange"></a> Mutate
+Insere novas variáveis na tabela. É possível utilizar outras variáveis como base para os valores
+
+```{r}
+mutate(USArrests, murder_prop = Murder / (Assault + Rape))
+```
+<br />
+
+#### <a name="pipe"></a> Pipes
+É possível encadear todas estas funções com um pipe ( %>% ):
+```{r}
+airquality %>% filter(Month == 8) %>% select(Ozone,Temp,Wind) %>% mutate(vento_ao_quadrado = Wind ** 2)
+```
+
+
+
