@@ -40,7 +40,7 @@ color:#444444;
   
   <li>[Graficos](#graficos)</li>
   <ul>
-  <li>[Scatter](#plot)</li>
+  <li>[Plot](#plot)</li>
   <li>[Boxplot](#box)</li>
   <li>[Histograma](#hist)</li>
   </ul>
@@ -55,6 +55,12 @@ color:#444444;
   <li>[Mutate](#mutate)</li>
   <li>[Pipes](#pipe)</li>
   </ul>
+  </ul>
+  
+  <li>[Pacotes para gráficos](#pacotes_graficos)</li>
+  <ul>
+  <li>[Ggplot2](#ggplot2)</li>
+  <li>[Plotly](#plotly)</li>
   </ul>
   
 </ul>
@@ -224,7 +230,9 @@ sd(vec_var)
 
 ### <a name="regressao_linear"></a> Regressão Lianear
 
-Exemplo: Teste da relação entre peso e altura em mulheres:
+##$Y_{i} = \beta_{0}+\beta_{1}X_{i}+\xi$
+
+Exemplo: Relação entre peso e altura em mulheres:
 ```{r}
 women
 regWomen <- lm(women$height ~ women$weight)
@@ -234,20 +242,31 @@ PONTOS IMPORTANTES:<br />
 o p-value o nível de coorrelação entre as variáveis. Abaixo de 0.05 está dentro do intervalo de confiança de 95%<br />
 O R ajustado indica a capacidade de explicação das variáveis no modelo.<br />
 O resultado possui um p-value extremamente baixo: $1.91^{-14}$, ou seja, alta coorrelação entre as variáveis.<br />
-O R ajustado de 0.9903 indica que este modelo tem capacida de explicação em 99.03% dos casos
+O R ajustado de 0.9903 indica que este modelo tem capacida de explicação em 99.03%.
 
 
 ## <a name="graficos"></a>Gráficos
 
 <br />
 
-### <a name="plot"></a> Scatter
-Cada valor é representado por um ponto no eixo cartesiano
+### <a name="plot"></a> Plot
+Plota de acordo com a serie de dados. No exemplo abaixo cada valor é representado por um ponto no eixo cartesiano:
 ```{r}
 plot(x = cars$speed, y = cars$dist, main = "Distâncias de parada", xlab = "Velocidade", ylab = "Distância")
 #Também é possível interferir no gráfico que foi plotado. Os dois comandos devem ser executados juntos.
 lines (c(5,25),c(5,80), col='red')
 ```
+
+Outros tipos de séries exibirão outros visuais:
+```{r}
+plot(UKDriverDeaths)
+```
+
+Ao plotar o resultado de uma regressão linear vários tipos de gráficos serão exibidos:
+```{r}
+plot(regWomen)
+```
+
 
 ### <a name="box"></a> Boxplot
 Representa graficamente os valores do mínimo, 1,2 e 3 quartil, mediana e máximo.
@@ -302,5 +321,39 @@ mutate(USArrests, murder_prop = Murder / (Assault + Rape))
 airquality %>% filter(Month == 8) %>% select(Ozone,Temp,Wind) %>% mutate(vento_ao_quadrado = Wind ** 2)
 ```
 
+<br />
+### <a name="pacotes_graficos"></a> Pacotes para gráficos
+#### <a name="ggplot2"></a> Ggplot2
+Cria gráficos visualmente agradáveis com bastante controle. funciona com a seguinte sintaxe:<br />
+ggplot2(dataset, aes(vaX,varY,...)) + função_de_plotagem() + função_de_plotagem() + ...<br />
+primeiro é criada a area de plotagem com os parâmetros básicos. Em seguida cada função somada é adcionada ao plot.
 
+```{r}
+ggplot(women, aes(women$height,women$weight)) + geom_point(col='red') + geom_path(col='#333333')
+ggplot(cars, aes(cars$speed,cars$dist)) + geom_count()
+```
+
+
+
+<br />
+
+#### <a name="plotly"></a> Plotly
+Cria gráficos interativos com excelentes recursos, mas funciona com sistema de visualizador. Se o tipo de gráfico não for fornecido ele tentará deduzir<br />
+obs: neste pacote caractere '~' não significa em função de.
+```{r}
+plot_ly(economics, x = ~date, y = ~pop)
+plot_ly(mtcars, y = mtcars$wt, type = "histogram")
+```
+O eixo Z pode ser usado para gráficos 3d ou heatmaps
+```{r}
+plot_ly(z = ~volcano, type = "heatmap")
+plot_ly(z = ~volcano, type = "surface")
+```
+
+Este pacote suporta encadeamento de funções com pipe:
+```{r}
+plot_ly(economics, x = ~date, color = I("black")) %>%
+ add_lines(y = ~uempmed) %>%
+ add_lines(y = ~psavert, color = I("red"))
+```
 
