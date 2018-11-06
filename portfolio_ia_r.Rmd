@@ -16,7 +16,15 @@ color:#444444;
 
 <hr />
 
-####Índice
+```{r include=FALSE}
+library(dplyr)
+library(tibble)
+library(ggplot2)
+library(reshape2)
+```
+
+
+#### Índice
 <ul>
   <li>[Uso básico da linguagem](#basico)</li>
   <ul>
@@ -60,10 +68,19 @@ color:#444444;
   <li>[Pacotes para gráficos](#pacotes_graficos)</li>
   <ul>
   <li>[Ggplot2](#ggplot2)</li>
-  <li>[Plotly](#plotly)</li>
+  </ul>
+  </ul>
+  
+  <ul>
+  <li>[Clusterização](#clusters)</li>
+  <ul>
+  <li>[K-Means](#kmeans)</li>
+  <li>[Heatmap](#heatmap)</li>
+  </ul>
   </ul>
   
 </ul>
+
 
 <hr />
 
@@ -79,7 +96,7 @@ sq ^ 3
 ```
 <br />
 
-###<a name="vetores"></a> Vetores
+### <a name="vetores"></a> Vetores
 ```{r}
 v <- c(1,2,3,4,5)
 v
@@ -99,7 +116,7 @@ v
 ```
 
 
-####<a name="vec_ops"></a> Operações com vetores
+#### <a name="vec_ops"></a> Operações com vetores
 Em uma operação entre um vetor e um escalar todos os índices sofrem a operação:
 ```{r}
 v * n
@@ -122,7 +139,7 @@ v2 <- c(3,3,3)
 v * v2
 ```
 
-###Filtragem
+### Filtragem
 Vetores podem ser filtrados por range
 ```{r}
 v[1:3]
@@ -137,13 +154,13 @@ v[v>3]
 ```
 <br />
 
-###<a name="matrizes"></a> Matrizes
+### <a name="matrizes"></a> Matrizes
 Matrizes só podem ter um tipo de valor. Inicialização:
 ```{r}
 m1 <- matrix(1:20, nrow = 4, ncol = 5)
 m1
 ```
-####<a name="matrix_ops"></a> Operações com matrizes
+#### <a name="matrix_ops"></a> Operações com matrizes
 A lógica para operações com escalares é a mesma para vetores:
 ```{r}
 m1 * 5
@@ -171,12 +188,12 @@ m1 %*% m3
 
 <br />
 
-###<a name="int_func"></a> Funções Internas
-####<a name="int_func_geral"></a> Funções para aritimética em geral
+### <a name="int_func"></a> Funções Internas
+#### <a name="int_func_geral"></a> Funções para aritimética em geral
 
 <br />
 
-####Soma (sum). 
+#### Soma (sum). 
 Soma todos os valores de um vetor
 ```{r}
 random_vec <- sample(30)
@@ -193,15 +210,15 @@ Neste caso o resultado indicad que a tabela "mtcars" possui 12 ocorrencias cuja 
 
 <br />
 
-####Média Aritimética símples
-##$\bar{x} = \frac{\sum_{i=1}^n x_{i}}{n}$
+#### Média Aritimética símples
+## $\bar{x} = \frac{\sum_{i=1}^n x_{i}}{n}$
 
 ```{r}
 vec_m <- c(1,2,3,4,5,6,7,8,9,10,30)
 mean(vec_m)
 
 ```
-####Mediana
+#### Mediana
 
 ```{r}
 median(vec_m)
@@ -213,8 +230,8 @@ median(vec_m)
 
 <br />
 
-####<a name="desvio_padrao"></a>Desivo padrão
-##$\sigma = \sqrt{\frac{\sum_{i=1(xi_{i} - \bar{x})^2}^{n}}{n}}$
+#### <a name="desvio_padrao"></a>Desivo padrão
+## $\sigma = \sqrt{\frac{\sum_{i=1(xi_{i} - \bar{x})^2}^{n}}{n}}$
 
 <br />
 
@@ -230,7 +247,7 @@ sd(vec_var)
 
 ### <a name="regressao_linear"></a> Regressão Lianear
 
-##$Y_{i} = \beta_{0}+\beta_{1}X_{i}+\xi$
+### $Y_{i} = \beta_{0}+\beta_{1}X_{i}+\xi$
 
 Exemplo: Relação entre peso e altura em mulheres:
 ```{r}
@@ -281,6 +298,10 @@ Histograma das frequencias de um dataset
 hist(mtcars$mpg)
 ```
 
+<br />
+
+## <a name="packages"></a>  Pacotes Eseenciais
+
 ### <a name="dplyr"></a> Dplyr
 #### <a name="select"></a> Select
 Retorna um subset com a sleção de colunas filtradas
@@ -322,9 +343,10 @@ airquality %>% filter(Month == 8) %>% select(Ozone,Temp,Wind) %>% mutate(vento_a
 ```
 
 <br />
+
 ### <a name="pacotes_graficos"></a> Pacotes para gráficos
 #### <a name="ggplot2"></a> Ggplot2
-Cria gráficos visualmente agradáveis com bastante controle. funciona com a seguinte sintaxe:<br />
+Cria gráficos visualmente agradáveis com bastante controle. A saída do gráfico é uma imagem. funciona com a seguinte sintaxe:<br />
 ggplot2(dataset, aes(vaX,varY,...)) + função_de_plotagem() + função_de_plotagem() + ...<br />
 primeiro é criada a area de plotagem com os parâmetros básicos. Em seguida cada função somada é adcionada ao plot.
 
@@ -333,27 +355,48 @@ ggplot(women, aes(women$height,women$weight)) + geom_point(col='red') + geom_pat
 ggplot(cars, aes(cars$speed,cars$dist)) + geom_count()
 ```
 
+<br />
 
+### <a name="clusters"></a> Clusterização
+#### <a name="kmeans"></a> K-Means
+
+Agrupa valores de acordo com um número de centróides pré-determinados. O Objetivo é minimizar a distância quadrada entre cada valor e cada centróide para que os formar clusters que estejam o mas próximo possível da centroide.
+
+### $j = \sum\limits_{i=1}^{k}{\sum\limits_{j=1}^{n}{\left \|{x}_{i}^{(j)}- {c}_{j}\right \|}}^2$
+
+```{r echo=TRUE}
+mtcarros <- as_tibble(rownames_to_column(mtcars))
+
+car_clusters <- kmeans(mtcarros[, c('wt', 'qsec')], 3, nstart = 30)
+
+mtcarros$cluster <- factor(car_clusters$cluster)
+
+centroids <- data.frame(cluster = factor(seq(1:n_clusters)),
+                        wt = car_clusters$centers[,'wt'],
+                        qsec = car_clusters$centers[,'qsec'])
+
+
+mtcarros %>% select(rowname, cluster)
+
+```
+```{r}
+ggplot() + geom_point(data = mtcarros, aes(x = mtcarros$wt, y = mtcarros$qsec, color = mtcarros$cluster)) +  geom_point(data = centroids,
+             mapping = aes(x = wt, y = qsec, color = cluster), size=8, pch=8)
+```
 
 <br />
 
-#### <a name="plotly"></a> Plotly
-Cria gráficos interativos com excelentes recursos, mas funciona com sistema de visualizador. Se o tipo de gráfico não for fornecido ele tentará deduzir<br />
-obs: neste pacote caractere '~' não significa em função de.
+#### <a name="heatmap"></a> Heatmap
+
 ```{r}
-plot_ly(economics, x = ~date, y = ~pop)
-plot_ly(mtcars, y = mtcars$wt, type = "histogram")
-```
-O eixo Z pode ser usado para gráficos 3d ou heatmaps
-```{r}
-plot_ly(z = ~volcano, type = "heatmap")
-plot_ly(z = ~volcano, type = "surface")
+corMatrix <- cor(mtcars)
+corMatrix
+melt_cor_matrix <- melt(corMatrix)
+melt_cor_matrix
 ```
 
-Este pacote suporta encadeamento de funções com pipe:
-```{r}
-plot_ly(economics, x = ~date, color = I("black")) %>%
- add_lines(y = ~uempmed) %>%
- add_lines(y = ~psavert, color = I("red"))
+```{r echo=TRUE}
+ggplot(data = melt_cor_matrix, aes(Var2,Var1, fill=value)) + geom_tile(color = "white") + scale_fill_gradient2(low = "blue", high = "red", 
+   midpoint = 0, limit = c(-1,1), name="correlacao") + geom_text(aes(Var2, Var1, label = round(value,2)), size = 2.5)
 ```
 
